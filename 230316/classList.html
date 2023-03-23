@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../0315dom.html/main.css" />
+    <link rel="stylesheet" href="../0315dom.html/style.css" />
+  </head>
+  <body>
+    <h1 id="title">My profile</h1>
+    <div id="profile">
+      <img src="" alt="도래미" />
+      <div id="desc">
+        <p class="user">이름 : 도래미</p>
+        <p class="user">주소 : somewhere</p>
+        <p class="user">연락처 : 1324-4567</p>
+      </div>
+    </div>
+    <script src="../0315dom.html\classList.js"></script>
+  </body>
+</html>
+contains() - 특정 클래스 스타일이 있는지 제목을 클릭하면 배경색과 글자색이
+바뀌는데 원래 상태로 돌아가리즌 않음 추가했던 클래스 스타일 을 제거하면 원래대로
+돌아감 그러기 위해서는 특정 클래스 스타일이 있는지 체크할 수 있어야함
+classList의 contains() 함수사용
+ 요소.classList.contains(클래스명) 
+ contains()함수를 사용해.clicked 스타일이 있는지 확인하고 
+ .clicked 스타일이 있다면remove()를 사용해서 제거한다

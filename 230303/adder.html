@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 매개변수 a와 b값을 받아서 더하고 더한 값을 반환하는 함수 정의
+      function adder(a, b) {
+        var sum;
+        sum = a + b;
+        return sum;
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      //   js함수도 다른 언어와 동일한 구조로 되어 있다
+      //   호출부 (주로 main)에서 인수(argument)를 전송하면
+      //   함수의 매개변수 (parameter)로 값을 받아들여 동작
+      //   js에서 변수형을 지정해 않으므로 매개변수에 변수형을 지정하지 않는다
+      var n = adder(24567, 98374);
+      document.write("24567 + 98374 = " + n + "<br>"); // document.write(n)만 써도 같은값
+    </script>
+  </body>
+</html>

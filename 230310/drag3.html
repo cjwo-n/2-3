@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #shopping_cart {
+        width: 660px;
+        height: 100px;
+        padding: 10px;
+        border: 1px dotted red;
+        position: relative;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .shopping_cart_item {
+        position: relative;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+      // allowDrop 함수는 드롭 대상 요소에서dragover 이벤트가 발생했을때
+      // 호출되는 이벤트 핸들러 함수이다
+      // 이벤트의 기본 동작을 막기 위한 코드인 ev.preventDefault()만을 포함
+      // 브라우저가 수행하는 기본 동작(예: 요소 드롭을 허용하지 않음)을 막음
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+      // drag 함수는 드래그할 요소에서 dragstart 이벤트가 발생했을때 호출되는
+      // 이벤트 핸들러 함수이다
+      // ev.dataTransfer.setData("text", ev.target.id) 코드는 드래그된
+      // 요소의 데이터를 설정하는 코드입니다
+      // 이경우 "text" 데이터 형식을 사용하며 드래그되 ㄴ요소의 id값을 데이터로 설정
+      // 이 데이터는 이후 드롭 이벤트에서 사용
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var img = document.getElementById(data).cloneNode(true);
+        img.className = "shopping_cart_item";
+        ev.target.appendChild(img);
+      }
+      function removeFromCart(imgId) {
+        var cart = document.getElementById("shopping_cart");
+        var img = document.getElementById(imgId);
+        if (img && img.parentNode == cart) {
+          cart.removeChild(img);
+        }
+      }
+      // removeFromCart함수는 imgId 매개변수로 제거할 이미지 요소의 ID값 전달받음
+      // Document.getElementById("shopping_cart")는 shopping_cart ID값을
+      // 가진 요소를 찾아 cart변수에 저장하는 코드입니다
+
+      // document.getElementById(imgId)는 imgId 값에 해당하는 요소를 찾아 img변수 저장
+
+      //    if (img && img.parentNode == cart)는 img변수가 null아니고
+      //    cart.removeChild(img)는 cart 요소에 img 요소를 제거하는 코드
+    </script>
+  </head>
+  <body>
+    <p>원하는 상품 담아</p>
+    <div
+      id="shopping_cart"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+    ></div>
+    <br />
+    <img
+      id="img1"
+      src="C:\media//back1.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img1)"
+    />
+    <img
+      id="img2"
+      src="C:\media//back2.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img2)"
+    />
+    <img
+      id="img3"
+      src="C:\media//back3.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img3)"
+    />
+    <img
+      id="img4"
+      src="C:\media//back4.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img4)"
+    />
+    <img
+      id="img5"
+      src="C:\media//back5.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img5)"
+    />
+    <img
+      id="img6"
+      src="C:\media//back6.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img6)"
+    />
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #result {
+        background-color: yellow;
+        color: darkblue;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function change() {
+        var p = document.getElementById("firstP");
+        result.innerHTML =
+          //innerHTML프로퍼티를 활용한 태그 객체를 생성
+          //result.innerHTML : id가 result인 태그 적용
+          "나의 <img src = c://media//puppy.png width='100px' height=100px>강아지";
+      }
+    </script>
+    <h3>innerHTML 활용 : 아래 글자를 클릭하면 예쁜 강아지가 보입ㄴ다</h3>
+    <p id="first" style="color: blue" onclick="change()">
+      여기에 <span style="color: red">클릭하세요</span>
+    </p>
+    <p id="result"></p>
+  </body>
+</html>
+innerHTML 프로퍼티 시작 태그와 종료 태그 사이에 들어있는 HTML 컨텐츠 innerHTML
+프로퍼티 수정 -> HTML 태그으 ㅣ콘텐츠 변경 var p =
+document.getElementById("first"); result.innerHTML = "나의
+<img src="c:media//puppy.png" width="100px" height="100px" />강아지" this 키워드
+객체 자신을 가리키는 자바스크리븥 키워드 DOM 객체 자신을 가리키는 용도로 사용
+div태그 자신의 배경을 orange 색로 변경
+<div onclick="this.style.backgroundColor='orange'">
+  버튼이 클릭되면 자신의 배경을 orange 색으로 변경
+  <button onclick="this.style.backgroundColor='orange'">
+    <p id="firstP" style="color: blue" onclick="change()">
+      여기에 <span style="color: red">클릭하세요</span>
+    </p>
+    :(HTML) id가 firstP인 p태그가 제일 먼저 보이게 된다 거기에 css 속성인
+    onclick속성의 change()함수 호출 
+
+    toggle() - 특정 스타일 토글 특정 클래스를
+    추가하거나 삭제하기를 반복하는 경우 classList의 toggle()함수가 더편리
+    요소.classList.toggle(클래스명) classList 프로퍼티 두개 이상으 class
+    스타일이 적용되었을 경우 class 스타일 정보를 담아두는 프로퍼티 classList
+    사용해 적용 중인 class 스타일 제거가능 새로운 class 스타일 추가가능 예-
+    콘솔창에서 확인 document.querySelector("#desc p").classList
+
+    <div id="desc" class="user clicked">
+      이름 : 도래미
+      <p class="user">주소 : somewhere</p>
+      <p class="user">연락처 : 1324-4567</p>
+    </div>
+
+    클래스 스타일 추가하기 및 삭제하기 새로운 클래스 스타일을 추가하거나 (이
+    경우 클래스 스타일이 만들어져 있어야함) 기존에 적용중인 클래스 스타일 제거
+    가능 요소.classList.add(클래스명) 요소.classList.remove(클래스명)
+  </button>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>if else 를 이용한 학점 매기긱</h3>
+    <br />
+    <script>
+      var grade;
+      //prompt함수를 통해 입력된 수는 문자가 되므로 parsing을 통해
+      //d원하는 변수형 (int)로 변환해 줘야 사용 가능
+      var score = prompt("홍길동님 점수를 입력하세요 ", 100);
+      score = parseInt(score); //문자열을 숫자로 바꿈
+      //if 나 else 조건에 맞으면 그 부분의 명령을 실행한다
+      //이런 구간 조건문은 switch-case 문이 더 깔끔
+      if (score >= 90) grade = "A";
+      else if (score >= 80) grade = "B";
+      else if (score >= 70) grade = "c";
+      else if (score >= 60) grade = "d";
+      else grade = "F";
+      document.write(
+        "당신의 점수는 " + score + "점이며" + " 등급은 " + grade + " 입니다<br>"
+      );
+    </script>
+    <script>
+      //이 부분은 전향전치전위 후향 연산자이다
+      var num1 = 31;
+      //++이 뒤에 오는 경우 해당 라인에서는 가산이 되지 않고
+      //다음 줄에서 된다 (선 출력 (num) 후 연산 (++))
+      var num2 = num1++;
+      //++이 먼저 오면 경우 최우선으로 연산이 진행된다
+      //선 연산++ 후 출력 (num)이렇게 외우면 편하다
+      var num3 = ++num1;
+      document.write(
+        +num1 + "점 ?" + "이게 사람의 점수입니까?" + "num1 = " + num1 + "<br>"
+      );
+      document.write("num2 = " + num2 + "<br>");
+      document.write("num3 = " + num3 + "<br>");
+    </script>
+  </body>
+</html>

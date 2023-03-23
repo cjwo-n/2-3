@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="c://media//jquery-3.6.3.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("a").click(function (event) {
+          alert("click");
+          //기본 이벤트 제거
+          //event.preeventDefault();
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="http://hanb.com.kr">한빛 아카데미</a>
+  </body>
+</html>
+<!-- preevent 이벤트를 제거한다 -->

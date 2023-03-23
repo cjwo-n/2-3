@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      var num = prompt("3배수 ", 3);
+      num = parseInt("num");
+      if (num == 0) {
+        document.write("아니야");
+      } else if (num == 1) {
+        document.write(promptInt("아니야"));
+      } else if (num == 2) {
+        document.write(promptInt("아니야"));
+      } else document.alert(promptInt("나왔다"));
+    </script> -->
+
+    <!-- <script>
+          var num = prompt("3배수", 3);
+            num = parseInt("num");
+          if(num != null){
+          document.write("아니라고")
+
+          } else ( num %= 0){
+          document.write("마자");
+      }
+    </script> -->
+
+    <script>
+      let userNumber = prompt("숫자를 입력");
+      if (userNumber != null) {
+        userNumber = parseInt(userNumber);
+      }
+      if (userNumber % 3 == 0) {
+        document.write("3배수");
+      } else if (userNumber % 3 != 0) {
+        document.write("아니야");
+      } else {
+        alert("입력취소");
+      }
+    </script>
+  </body>
+</html>

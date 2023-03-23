@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 셋 다 자주 쓰이는 함수이므로 알고 있어
+      function evalParseIntIsNaN() {
+        // eval 문자열로 표현된 자바스크립트 코드를 실해하는 함수이므로
+        // ""로 묶어 문자열로 만들지 않아도 계산된다
+        var res = eval("2*3+4*6");
+        document.write('eval("2*3+4*6"\)' + res + "<br>");
+        var m = parsInt("32");
+        document.write('eval("32"\)' + m + "<br>");
+        var n = parseInt("0x32");
+        document.write('eval("0x32"\)' + n + "<br>");
+        //parseInt("hello")문자열을 파싱하여 정수로 변환(숫자 없으면 NaN변환)
+        n = parseInt("hello");
+        // isNaN(var) : 저달된 값이 NaN인지를 검사하여 그 결과 반환
+        // 전달 받은 값이 숫자가 아닐때 true
+        // "123"처럼 문자열로 감싸도 강제로 숫자로 변환하여 검사 값 false
+        if (isNaN(n));
+        document.write("hello는 숫자 아닙니다");
+      }
+    </script>
+    <script>
+      evalParseIntIsNaN();
+    </script>
+  </body>
+</html>
+<!-- isNaN("문자열"); true전달된 값이 NaN 인지를 검사하여 그 결과를 반환한다
+eval() 문자열로 표현된 자바 스크립트 코드를 실행하는 함수
+함수정의
+function 함수이름 (매개변수1, 매개변수2...){
+    함수가 호출되었을떄 실행하고자 하는 실행문;
+}
+매개변수(parameter)는 함수를 호출할 떄 인수(argument)로 전달된 값을 함수 내부에서 사용할 수 있게 해주는 변수 -->

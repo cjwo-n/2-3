@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function gugudan(n) {
+        //전달 받은 값을 int 형으로 parsing
+        var m = parseInt(n);
+        // 전달 값이 정수가 아니거나 구구단 버무이를 넘어서면 종료
+        // isNaN()은 인자에 있는 값이 위에서 지정해두 ㄴ값과 같은 자료형인지 판단
+        // 위에서 정수로 지정해두었기에 정수가 아니라면 이라는뜻
+        // isNan(m)이면 false !isNaN(m)이면 true
+        // 약간 기본과 반대되는 개념이라고 생각
+        if (isNaN(m) || m < 1 || m > 9) {
+          //2단부터 9단까지 정상
+          alert("잘못입력");
+          return;
+        }
+        for (var i = 1; i < 10; i++) {
+          document.write(m + "x" + i + "=" + m * i + "<br>");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+        // 출력을 원하는 단수 입력
+      var n = prompt("구구단 몇단 원함?", "");
+      gugudan(n);
+    </script>
+  </body>
+</html>

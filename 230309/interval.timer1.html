@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let count = 0;
+      let greeting = () => {
+        aa = document.getElementById("aaa");
+        aa.innerText = `hi${count}`;
+        count += 1;
+      };
+      let start1 = () => {
+        setInterval(greeting, 100);
+      };
+      let stop1 = () => {
+        clearInterval(greeting);
+      };
+      let start = () => {c = setInterval(greeting, 100);};
+        //변수 start의 기능은 임의의 속성 c에 대해 선언 속성값은 greeting 변수를 무한 반복한다  
+      let stop = () => {clearInterval(c);};
+        //변수 stop의 기능은 속성 c의 무한 반복을 멈춘다
+      
+    </script>
+    <button onclick="stop()">멈춰</button>
+    <button onclick="start()">시작</button>
+    <p id="aaa"></p>
+  </body>
+</html>

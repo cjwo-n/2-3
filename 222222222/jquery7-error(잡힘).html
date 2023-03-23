@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="c://media//jquery-3.6.3.min.js"></script>
+    <!-- <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                $('.h').css({
+                    color:'red',
+                    border: '2px solid blue'
+                
+                })
+
+            })
+
+        })
+         -->
+         <style>
+            .sd{
+                color: red;
+                border: 3px dotted blue;
+                border-radius: 20px;
+            }
+         </style>
+         <script>
+            $(document).ready(function(){
+                $('button').click(function(){
+                    $('.h').toggleClass('sd');
+                })
+            })
+         </script>
+    </script>
+</head>
+<body>
+    <h1 class="h" >html</h1>
+    <h2 class="h">css</h2>
+    <h3 class="h">자바스크립트</h3>
+    <h4 class="h">제이쿼리</h4>
+    <button>css 적용하기</button>
+</body>
+</html>
+<!-- 버튼을 다시 눌렀을때 css만 사라지게한다
+ -->
+ <!-- onmouseover -->

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #shopping_cart {
+        width: 610px;
+        height: 100px;
+        padding: 10px;
+        border: 1px dotted red;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        //ev는 event 약어이며 ev는 alowDROP의 기능을 한다
+        ev.preventDefault(); //ev
+      }
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+      
+
+      function removeFromCart(imgId) {
+        var cart = document.getElementById("shopping_cart");
+        var img = document.getElementById(imgId);
+        if (img && img.parentNode == cart) {
+          cart.removeChild(img);
+        }
+      }
+      // function click(ev) {
+      //   ev.dataTransfer.setData("text", ev.target.id);
+      // }
+    </script>
+  </head>
+  <body>
+    <p>원하는 상품을 카트에 담으세요 ctrl + alt + 방향키</p>
+    <div
+      id="shopping_cart"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+    ></div>
+    <br />
+    <img
+      id="img1"
+      src="C:\media//back1.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img1)"
+    />
+    <img
+      id="img2"
+      src="C:\media//back2.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img2)"
+    />
+    <img
+      id="img3"
+      src="C:\media//back3.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img3)"
+    />
+    <img
+      id="img4"
+      src="C:\media//back4.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img4)"
+    />
+    <img
+      id="img5"
+      src="C:\media//back5.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img5)"
+    />
+    <img
+      id="img6"
+      src="C:\media//back6.jpg"
+      alt=""
+      draggable="true"
+      ondragstart="drag(event)"
+      onclick="removeFromCart(img6)"
+    />
+  </body>
+</html>
+Drag & Drop은 쇼핑몰에서 상품을 카트에 담을 떄 사용 메일이나 게시판에서 파일을
+첨부할때도 사용 setData(type, data) 끌어다 놓기 위해 새로운 type을
+정의하고끌어올 data 를 저장 getData(type) setData에서 정의한 type을 가져온다

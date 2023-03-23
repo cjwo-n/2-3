@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <script>
+      var userNumber = prompt("숫자를 입력하세요", 0);
+      if (userNumber != null) {
+        userNumber = parseInt(userNumber);
+        if (userNumber == 2n) {
+          document.write("짝수입니다");
+        } else {
+          document.write("홀수 입니다");
+        }
+      } else {
+        document.write("취소gka");
+      }
+    </script>
+  </body>
+</html>
+<!-- 짝수 홀수 구분하는 프로그램 if 문으로 만들어 보기
+성ㅅㅇ저거 [취소] 버튼을 클릭하면 어떻게 해야할까?
+짝수와 홀수는 어떻게 구분 "숫자를 입력하세요" 삼향사용합니다 -->
+<!-- let userNumber = prompt("숫자 입력");
+if(userNumber !== null){
+    userNumber = parseInt(userNumber);
+    (userNumber % 2 === 0) ? alert(`${userNumber} : 짝수`) : alert(`${userNumber} : 홀수`);
+
+} -->
+<!-- 1부터 10까지 순서대로 콘솔 창에 표시하는 일반 for문을 생각해 보자
+1>카운터 변수 선언 및 할당
+대부분 카운터 변수를 i로 사용 1부터 시작 -->

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h3>지역변수왕 전역변수</h3>
+    <script>
+      // 이 전역변수는 해당 스크립트 문 내에서만 전역변수
+      var x = 100; // 전역변수x
+      function f() {
+        //함수 f() 선언
+        var x = 1; //지역변수 x 는 함수가 실행될떄만 생성되고 소멸
+        document.write("지역변수 x = " + x);
+        document.write("<br>");
+        //this.x는 스크립트 문의 전역변수 x 를뜻함
+        document.write("전역변수 x = " + this.x);
+      }
+      f(); //함수 f()호출
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="c://media//jquery-3.6.3.min.js"></script><script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("img").animate('reset')      
+            })
+
+            $("img").click(function(){
+                $("img").animate("img#first")
+            })
+
+            $("img").click(function(){
+                $("img").animate('play2')
+            })
+
+            $("img").click(function(){
+                $("img").animate('play3')
+            })
+        })
+    </script>
+    <style>
+        img{
+            padding-left: 500px;
+        }
+        img#first{
+            transform: translateX(0px, 3s);
+        }
+        .reset{
+            
+        }
+        /* @keyframes cat{
+            0%{translate: 500px;}
+            100%{translate: 0px}
+            
+        }
+        .play1{
+            transform: translate(0px);
+            animation-name: cat;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+        .play2{
+            animation-name: cat;
+            animation-duration: 5s;
+            animation-iteration-count: 1;
+            
+        }
+        .play3{
+            animation-name: cat;
+            animation-duration: 7s;
+            animation-iteration-count: 1;
+            
+        } */
+        
+        div{
+            border: 2px solid black;
+            width: 600px;
+            height : 300px;
+        }
+        div img{
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+    
+</head>
+<body>
+    <button>초기화 상태</button>
+
+    <div>
+        <img id="first" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMDdfMjg3%2FMDAxNjc1NzQzMTIyOTQ3.dbXfun6ca4XIUDsgY6LbIqLufleHPEdBmICJphbLfrgg.e3AyOxjoU4b3QQhTE6hXklHN-gsTaMGo8EzfU2hhI2Yg.JPEG.weemsygdowdlebb%2FKakaoTalk_20230207_115200530_09.jpg&type=a340" alt="">
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMDdfMjg3%2FMDAxNjc1NzQzMTIyOTQ3.dbXfun6ca4XIUDsgY6LbIqLufleHPEdBmICJphbLfrgg.e3AyOxjoU4b3QQhTE6hXklHN-gsTaMGo8EzfU2hhI2Yg.JPEG.weemsygdowdlebb%2FKakaoTalk_20230207_115200530_09.jpg&type=a340" alt="">
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMDdfMjg3%2FMDAxNjc1NzQzMTIyOTQ3.dbXfun6ca4XIUDsgY6LbIqLufleHPEdBmICJphbLfrgg.e3AyOxjoU4b3QQhTE6hXklHN-gsTaMGo8EzfU2hhI2Yg.JPEG.weemsygdowdlebb%2FKakaoTalk_20230207_115200530_09.jpg&type=a340" alt="">
+    </div>
+    
+</body>
+</html>

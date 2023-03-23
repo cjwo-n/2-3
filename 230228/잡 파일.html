@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        div{
+            background-color: white;
+            height:100px;
+        }
+    .div{
+        background-color: #060506;
+        /* main back color */
+    }
+    div#nav{
+        width: auto;
+        height: 200px;
+        background-color: #26163e;   /*nav background color  */
+        color: #edebef;
+    }
+    img.logo{
+        background-color: #26163e;
+        width: 100px;
+        height: 100px;
+        padding-left: 40px ;
+        padding-top: 50px;
+    }
+    div.product{
+        background-color: #26163e;
+        color: #edebef;
+        width: 100px;
+        height: 90px;
+        text-align: center
+    }
+    td{
+        color: #edebef;
+        display: inline;
+        font-size: 30px;
+        width: 300px;
+        height: auto;
+    }
+    td a{
+        color: #edebef;
+        text-decoration: none;
+        text-align: right;
+    }
+    
+    
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("td a").click(function(){
+                $("td a").animate({
+                    height:'1000px'
+                    
+                }, 3000)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div id="nav">
+        <table>
+            <tr>
+                <td><img class="logo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjExMjZfMjIz%2FMDAxNjY5NDQ5NTE1MzI0.Ud1rJCE8QlDb4W3ejG9PW85EJ7MbrwB6BBdvuisdlRYg.tUJT_qGFgAJzi70EruE6L79Dm5LWq9ADcN784t2b8kIg.JPEG.etchstone%2FKakaoTalk_20221115_154138064.jpg&type=sc960_832" alt=""></td>
+            
+                <td><a href="#"> &nbsp; product &nbsp;</a></td> 
+                <td><a href="#"> &nbsp; about us &nbsp;</a> </td>
+                <td><a href="#"> &nbsp; center &nbsp;</a> </td>
+                <td><a href="#"> &nbsp; any body &nbsp;</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

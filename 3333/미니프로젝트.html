@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            width: 700px;
+            margin-left: 20px;
+            font-family: 돋움;
+            font-size: 12px;
+            color: #888888;
+            padding-top: 5px;
+        }
+        
+        h2{
+            font-size: 15px;
+            width: 700px;
+            height: 25px;
+            margin-top: 10px;
+            margin-left: 20px;
+            border-bottom: solid 2px #1b894d;
+        }
+        div{
+            width: 700px;
+            margin-left: 20px;
+            font-family: 돋움;
+            font-size: 12px;
+            color: #888888;
+            padding-top: 5px;
+        }
+        .row{
+            height: 30px;
+            margin-top: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+        input{
+            width: 80px;
+            height: 16px;
+            border: solid 1px #cccccc;
+
+        }
+        select{
+            width: 80px;
+            height: 20px;
+            border: 1px solid #cccccc;
+            font-size: 12px;
+
+        }
+        .col1{
+            width: 120px;
+            text-align: right;
+        }
+        .col2{
+            margin-left: 10px;
+        }
+        li{
+            display: inline;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <h2>회원가입정보</h2>
+        <div>
+        <table>
+            <ul >
+                <li class="col1">아이디</li><li class="col2"><input type="text" name="id"></li><li><img src="" alt=""></li></ul>
+             <ul>  
+                <li class="col1">비밀번호</li><li class="col2"><input type="password" name="pss"></li><li>영문,숫자 조합으로 4~12자 이내</li></ul> 
+                
+                <li class="b">비밀번호 확인</li><li><input type="password" name="psscheck"></li>
+                <hr>
+                <li class="b">이름</li><li><input type="text" name="이름"></li>
+                <hr>
+                <li class="b">생년월일 </li><li><input type="year" name="year">년<input type="month" name="month">월<input type="day" name="day">일<input type="checkbox" name="음력">음력<input type="checkbox" name="양력">양력</li>
+                <hr>
+                <li class="b">이메일</li><li><input type="emai1" name="email"></li>
+                <hr>
+                <li class="b">휴대 전화</li><li><input type="tel" name="tel">-<input type="tel" name="tel">-<input type="tel" name="tel"></li>
+                <hr>
+                <li class="b">직업</li><li></li>
+                <hr>
+                <li class="b">영어 수강 목적</li><li><input type="checkbox" name="시험 대비">시험대비 <input type="checkbox" name="업무상">업무상<input type="checkbox" name="취미">취미<input type="checkbox" name="기타">기타</li>
+            </ul>
+        </table>
+    </div>
+</body>
+</html>

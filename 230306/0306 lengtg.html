@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var today = new Date();
+      // data 객체의 toGMTSring()a메소드 호출
+      // toGMTSring() : 그러니치 평균시
+      // 즉 Date 객체의 시간을 세계 표준시 형식으로 표현
+      document.write("현재시간 : " + today.toGMTString() + "<br>");
+      // string객체 생성
+      // 보통 "" 이나 ''를 사용해 리터럴로 사용하지만
+      // new 연산자를 이용해 명시적 string 객체 생성 가능
+      // 이러한 string 객체는 문자열 값을 감싸고 있는 래퍼(wrapper) 객체
+      var mystr = new String();
+      mystr = "반갑습니다";
+      document.write("mystr의 길이 : " + mystr + " <br>");
+      //sting.length 문자열의 기리이를 구하는 메소드
+      document.write("mystr의 길이 : " + mystr.length + " <br>");
+    </script>
+  </body>
+</html>

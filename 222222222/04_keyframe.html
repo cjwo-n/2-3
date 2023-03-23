@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 키프레임 리스트가 유효하려면 최소한 0%,100%같은 ㅅㅣ간에 대한 규칙은 포함해야 합니다
+%가 의미하는 것으 ㄴ애니메이션의 시작과 끝 상태를 의미
+대발자가 애니메이션 중간 중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
+css애니메이션 중간중간 절차를 제어할수 있게 합니다
+이 줄은 브라우저가 자ㅇ동으로 애니메이션을 처리하는 것 보다ㅏ ㅓㄷ 세밀하게 중간 동작 제어가능 -->
+<html>
+    <head>
+        <style>
+            /* 키프레임 이노테이션을 활용해 애니메이션 생성
+            transform 0%는 초기 상태 100%는 완료
+            rotate 는 회전 deg는 60분법 각도 */
+            @keyframes imagerotation{
+                0% {transform: rotate(0dge);}
+                100%{transform: rotate(360deg);}
+            }
+            /* 다음과 같이 가ㅌ능
+            이경우 회전하는모양이 조금씩 다르다
+            0% {transform:rotate(0deg);}
+            25%{transform:rotate(90deg);}
+            50%{transform:rotate(180deg);}
+            75%{transform:rotate(270deg);}
+            100%{transform:rotate(360deg);}*/
+            #tran{
+                /* animation-name : imagerotation; 이건 name @keyframes imagerotation
+                에서 사용된 이름을 써야 애니메이션 작동 */
+                animation-name: imagerotation;
+                 /*듀레이션 동작하는 동안의 시간*/ 
+                animation-duration: 1s;
+                /* 타이밍 기능은 반복회수 그냥 숫자롤 입력도 가능 infinite는 무한반복 */
+                animation-iteration-count: infinite;
+            }
+        </style>
+    </head><body>
+        <h2>돌아라</h2>
+        <img src="c:\\media\\spongebob.png" alt="" id="tran">
+    </body>
+</html>
+<!-- 질문있습니다 3번 반복  키프레임 이용-->

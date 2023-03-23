@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // password의 초기값
+        // 미리 설정해 둔 암호를 입력해야만 아래 dowhile 문 탈출
+        // dowhile문은 무조건 한번 실행
+        var password = "1234";
+        do{
+            myInput = prompt("비밀번호를 입력하세요." , "암호")
+        }while(password != myInput)
+        document.write("통과");
+        // myInput변수에 prompt에서 입력받은값대입
+        // while문을 활용한 암호 맞추기 문제이다
+        // password 변수에 들어있는 문장을 맞추면 while탈출 
+    </script>
+</body>
+</html>

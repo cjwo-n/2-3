@@ -1,0 +1,40 @@
+<!-- btn은 HTMLCollection 형태로 반환됩니다. HTMLCollection은 배열과 비슷한 형태이지만, 
+배열과 달리 addEventListener 메소드를 직접 사용할 수 없습니다.
+ HTMLCollection에서 하나의 요소에 대해 이벤트를 등록하려면,
+  해당 요소에 대해 인덱스를 지정하여 요소를 선택해야 합니다.
+  btn은 HTMLCollection 객체이기 때문에 addEventListener() 메소드를 직접 호출할 수 없습니다. 
+  HTMLCollection 객체의 각 요소에 이벤트 리스너를 등록하려면, for 루프를 사용해주세요 -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>this 활용</title>
+  </head>
+  <body>
+    <h3>this의 활용</h3>
+    <button>버튼</button>
+    <button>버튼</button>
+    <div>여기 클릭하면 크기와 색 변경</div>
+    <script>
+      function change(obj, size, color) {
+        obj.style.color = color;
+        obj.style.fontSize = size;
+      }
+  
+      const btn = document.getElementsByTagName("button");
+      const div = document.getElementsByTagName("div")[0];
+  
+      Array.from(btn).forEach((button) => {
+        button.addEventListener("click", function(event) {
+          (event.target == btn[0]) ? change(event.target, "30px", "red") : change(event.target, "40px", "blue");
+        });
+      });
+  
+      div.addEventListener("click", function(event) {
+        change(event.target, "25px", "orange");
+      });
+    </script>
+  </body>
+  </html>
+  

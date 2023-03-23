@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function change(obj, size, color) {
+        obj.style.color = color;
+        obj.style.fontSize = size;
+      }
+    </script>
+    <button onclick="change(this,'30px','red')">button</button>
+    <button onclick="change(this,'30px','blue')">button</button>
+    <div onclick="change(this,'250px','orange')">여기 클릭 크기 색</div>
+  </body>
+</html>
+
+script 코드를 통해 함수 change 생성 function change(obj, size, color){ 여기서
+입력되는 obj는 버튼과 문장뜻} 즉 change 를 뭐로 바꿀거냐 각각 버튼 문장의 속성을
+바꿀것이기에 this표현 키워드의 동작 방식은 함수를 호출한 방식과 함수 정의 방식에
+따라서 달라짐 일반함수,콜백함수, 화살표 함수에서 this키워드의 동작 방식이다름
+일반함수에서 this 키워드 일반함수에서 함수서 this 키워드는 함수를 호출한 객체를
+가리킵니다 콜백함수에서 this키워드 : 콜백함수도 일반 함수동일하게 this 키워드를
+사용 콜백함수가 일반 함수로 정의되어 있으면 this 키워드 함수를 호출한 객체를
+가리킴 콜밳함수가 화살표 함수로 정의되어 있으면 this 키워드는 상윙 스코프의 this
+값 가리킴 화살표 함수에서 this 키워드 : 화살표 함수에서 this 키워드는 함수를
+정의할떄 상위 스코프의 this값을 가져와서 사용함 따라서 화살표 함수 내부에서 this
+키워드를 사용하면 상위 스코프의 this 참조

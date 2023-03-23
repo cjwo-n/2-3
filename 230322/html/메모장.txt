@@ -1,0 +1,124 @@
+배열에 같은 함수 적용하기 - map()
+map()은 각 배열 요소에 똑같은 함수를 실행한 후 그 결과 를 새로운 배열로 반환하는 메서드
+
+let numbers = [1, 2, 3, 4, 5]
+let newNumbers = numbers.map(number => number * 2);
+undefined
+
+let numbers = [1, 2, 3, 4, 5]
+let nweNumbers2 = numbers.map((number, index) => index + (number *3))
+undefined
+
+newNumbers
+(5) [2, 4, 6, 8, 10]
+
+--------------------------------------------------------------------------
+
+특정 조건으로 골라내기 - filter()
+특정 조건에 맞는 요소만 골라내는 메서드
+예- 여러 점수가 저장된 scores 배열에서 85점 이상만 골라ㅏ서 highScores 배열을 만드려면
+
+let scores = [90, 85, 64, 78, 99, 77]
+let highScores2 = scores.filter((score, index) => {
+    if(score >= 85){
+        console.log(`index : ${index}, score : ${score}`);
+    }
+});
+index : 0, score : 90
+index : 1, score : 85
+index : 4, score : 99
+
+=------------------------------------------------------------------------
+
+값 누적하기 -reduce()
+배열 요소에 차례로 함수를 실행하면 결과값을 하나로 누적하는 메서드
+초깃값은 생력 가능, 생략하면 배열의 첫번째 값을 초깃값으로 사용
+현재값 = 초기값 + 첫번째 배열 요소 실행한 값
+현재값 = 기존 현재 값 + 두번째 배열 요소 실행한 값
+
+예 - numbers 배열에 있는 요소를 차례대로 더해 result 저장려면
+
+let numbers = [1, 2, 3, 4, 5]
+let result = numbers.reduce((total, current) => total + current,0);
+undefined
+result
+15
+
+----------------------------------------------------------------------------
+맵과 셋이 등장한 이유 
+자바스크립트에서 여러 값을 하나의 변수로 묶어서 처리하기 위해 배열이나 객체 사용
+배열과 객체에서 해야 할 일이 점점 많아지면서 배열과 객체로는 부족하다고 생각했던 부분을 보완해 맵과 셋이 도입되었다
+    객체에서 키 에는 문자열만 사용할 수 없다
+    맵에서는 키에 모든 값을 사용할 수 있다
+    객체에는 여러 정보를 담을 수 있지만 프로퍼티 간에 순서가 없다
+    맵과 셋에는 순서가 있다
+for 문과 같은 반복문을 사용해서 객체의 프로퍼티를 반복할 수 없다
+맵과 셋에서는 for...of 같은 반복문을 사용할수 있다
+객ㄱ체에는 프로퍼티의 개수를 알려주는 프로퍼티가 없다
+앱과 셋에는 별도의 프로퍼티가 있다
+맵과 셋은 배열이나 객체보다 많은 메서드를 가짐
+맵
+키와 값이 하나의 쌍으로 이루어지고 여러 개의 프로퍼티를 가지고 있는 자료 형태
+맵의 프로퍼티키는 문자열뿐 아니라 모든 자료형을 사용가능
+객체나 함수도 사용할수 있음
+앱의 프로퍼티는 순서대로 접근 처리 가능
+
+let bag = new Map()
+
+undefined
+bag.set("color","red")
+Map(1) {'color' => 'red'}
+let myCup = new Map([
+    ["color", "white"],
+    ["haverHandle", true],
+    ["material","ceramic"],
+    ["capacity", "300ml"]
+    ])
+undefined
+myCup
+Map(4) {'color' => 'white', 'haverHandle' => true, 'material' => 'ceramic', 'capacity' => '300ml'}
+map 객체를 만들면서 프로퍼티를 지정 가능함
+
+let bag = new Map()
+bag.set("color","red")
+
+bag.set("type","mini")
+bag.set("purpose","daily")
+
+bag.set("type","mini").set("purpose","daily")
+------위에 맵셋 html확인--------
+bag.size
+3
+bag.get("color")
+'red'
+bag.has("color")
+true
+bag.delete("type")
+true
+bag
+Map(2) {'color' => 'red', 'purpose' => 'daily'}
+bag.clear()
+undefined
+bag
+Map(0) {size: 0}
+
+맵에서 키와 값을 가져오는 메서드
+맵은 순서를 가지고 있는 객체 이터러블 객체
+키나 값을 가져오는 매서드는 이터러블 객체를 반환한다
+
+let myCup = new Map([
+    ["color","red"],
+    ["haveHandle", true],
+    ["material", "ceramic"],
+    ["capacity", "300ml"]
+    ])
+    myCup.keys()
+MapIterator {'color', 'haveHandle', 'material', 'capacity'}
+
+for(let key of myCup.keys()) {
+    console.log(key)
+}
+ color
+ haveHandle
+ material
+ capacity

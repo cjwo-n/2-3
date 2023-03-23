@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>물품을 선택하면 금액이 자동 계산됨</h3>
+    <form action="">
+        <input type="checkbox" name="cap" value="10000"
+        onclick="calc(this)">모자 1만원
+        <input type="checkbox" name="shoes" value="30000"
+        onclick="calc(this)">구두 3만원
+        <input type="checkbox" name="bag" value="50000"
+        onclick="calc(this)">가방 5만원
+        <br>
+        <br>
+        지불할 금액 <input type="text" id="subtext" value="0">
+        
+        <script>
+            var sum = 0;
+            function calc(cBox){
+                if(cBox.checked)
+                sum += parseInt(cBox.value);
+                else
+                sum -= parseInt(cBox.value);
+                document.getElementById("subtext").value =sum;
+            }
+        </script>
+        <!-- <script src="../230320/event-8.js"></script> -->
+    </form>
+    <!-- <br><br>
+    <br><br>
+    <h3>물품을 선택하면 금액이 자동 계산됨</h3>
+    <form action="">
+        <input id="cap" type="checkbox" name="cap" value="10000"
+        onclick="checkbox1(e);">모자 1만원
+        <input id="shoes" type="checkbox" name="shoes" value="30000"
+        onclick="checkbox2(e);">구두 3만원
+        <input id="bag" type="checkbox" name="bag" value="50000"
+        onclick="checkbox3(e);">가방 5만원
+        <br>
+        <br>
+        지불할 금액 : <div id="total" ></div>
+        <script src="../230320/event-8.js"></script> -->
+    </form>
+</body>
+</html>

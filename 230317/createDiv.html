@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><script>
+        function createDIV(){
+            var obj = document.getElementById("parent");    
+            var newDIV = document.createElement("div");
+            newDIV.innerHTML = "새로 생성된 DIV다";
+            newDIV.setAttribute("id", "myDiv");
+            newDIV.style.backgroundColor = "yellow";
+
+            newDIV.onclick = function(){
+                var p = this.parentElement;
+                p.removeChild(this);
+            };
+            obj.appendChild(newDIV);
+        }
+    </script>
+<body id="parent">
+    <h3>DIV 객체를 동적을 생성, 삽입 삭제하는 에제</h3><hr>
+    <p>DOM 트리에 동적으로 객체를 삽입할 수 있다
+        createElement()
+        appendChild()
+        removeChild()
+        메소드를 이용하여 새로운 객체 생성 삽입 삭제하는 예제
+    </p>
+    <p><a href="javascript:createDIV()">DIV 생성</a></p>
+</body>
+</html>
+<!-- document 문서
+get 가져온다
+element 요소를
+id를 (id명 parent) -->
+
+document와 selector는 우베 페이지의 요소에 엑세스 하고 조작하는 사용 
+document 객체는 웹 페이지의 모델을 나타냄
+DOM(document, object, model)을 표현함
+
+selector는 요소를 선택하고 참조하는데 사용
+css선택자와 유사한 문법 사용 
+querySelector와 querySelectorAll 와 같은 메소드 사용
+
+document는 웹페이지의 dom을 나타내는 객체이며
+selector는 웹 페이지의 특정 요소 찾고 선택
+document 객체와 함께 사용되는 선택자 메소드 사용

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function change() {
+        //change()함수의 기능은 변수 spanArray이다
+        var spanArray = document.getElementsByTagName("span"); //
+        for (var i = 0; i < spanArray.length; i++) {
+          var span = spanArray[i];
+          span.style.color = "#0101ff" + i * 30;
+          span.style.fontSize = "20px";
+        }
+      }
+      // spanArray객체에 수 (span태그수가 for문에 맞춰 실행)
+    </script>
+  </head>
+  <body>
+    내가 좋아하는 것
+    <br />
+    <button onclick="change()">누르</button>
+    나는 빨간 <span>사과</span>를 좋아해 아침마다 한개 씩 먹어 운동할떄 중간
+    중간에 <span> 바나나</span> 먹어 탄수화물 섭취완료 달콤한 향기 품은
+    <span> 체리</span>r그냥 <span>여름 냄새</span> 싫어
+  </body>
+</html>
+
+
+getElementByClassName() 메서드는 HTMLCollection 반환됨
+HTMLCollection 배열과 비슷한 형태를 가지며
+실제로는 배열이 아닌 유사 배열 객체
+
+var user = document.getElementByClassName("user")
+for(var i =0; i <= user.length;i++){
+    user[i] = addEventListener("CLICK ")
+}

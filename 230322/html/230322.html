@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> 텍스트가 자동 회전하며 스페이스바를 이용해 조작 가능</h3>
+    <h4>또 b(B) 역회전 걸기 가능</h4>
+    <hr>
+    <div>
+        <span id="div" style="background-color: yellow;">자동회전하는 텍스트</span>
+    </div>
+    <script>
+        var div = document.getElementById("div");
+        var body = document.querySelector("body");
+        var timerID = setInterval("doRotate()",1000);
+        console.log(timerID)
+
+        var isMove = true;
+        var count = 1;
+        var speed = 200;
+
+        div.addEventListener("click", function(){
+            if(!isMove){
+                speed = 200/count;
+                timerID = setInterval("doRotate()",speed);
+                isMove = true;
+            }else{
+                clearInterval(timerID);
+                ++count;
+                isMove = false;
+            }
+        });
+
+        var clickedSpeed;
+
+        div.addEventListener("click", function () {
+            if(!isMove){
+                speed = 200 /count;
+                timerID = setInterval("doRotate()", speed);
+                isMove = true;
+                clickedSpeed = speed;
+            }else {
+                clearInterval(timerID)
+                ++count;
+                isMove = false;
+            }
+        });           
+
+        body.addEventListener("keydown", function (e) {
+            var key = e.key;
+                if(key == " "){
+                    clearInterval(timerID);
+                    clickedSpeed = Math.min(900, clickedSpeed + 20);
+                    timerID = setInterval("doRotate()", clickedSpeed);
+                }
+        });
+        body.addEventListener("keydown", function (e) {
+            var key1 = e.key;
+                if(key1 == "b"){
+                    clearInterval(timerID);
+                    clickedSpeed = Math.min(900, clickedSpeed + 20);
+                    timerID = setInterval("coRotate()", clickedSpeed);
+                }
+        });
+        function doRotate() {
+            var str = div.innerText;
+            var firstChar = str.substr(0, 1);
+            var remains = str.substr(1, str.length-1);
+            str = remains + firstChar;
+            div.innerText =str;
+        }
+        function coRotate() {
+            var str = div.innerText;
+            var firstChar = str.slice(0, -1);
+            var remains = str.slice(-1, str.length +1);
+            str = remains + firstChar;
+            div.innerText = str;
+        }
+        
+
+    </script>
+</body>
+</html>
+String.substr(start, length)
+String.substring(start, end)
+String.slice(start, end)
+

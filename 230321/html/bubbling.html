@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/event.css">
+</head>
+<body>
+    body
+    <div onclick="console.log('div')">
+        div
+        <section onclick="console.log('section')">
+        section
+    </section>
+    <p onclick="console.log('p')">p</p>
+    </div>
+</body>
+</html>
+이름에서 알수 있듯이 위로 버블버블
+이벤트가 발생한 요소에서부터 부모 요소로 다시 그 요소의 부모 요소로 이벤트 전달
+모든 브라우저에서 대부분의 이벤트 버블링됨
+
+이벤트 흐름이란 이벤트가 발생하면 window 객체 먼저 도달 DOM트리를 따라 이벤트 타겟 도착
+다시 반대 방향으로 흘러 window 객체에 도달한 다음 사라지는 과정
+
+이벤트가 흘러가는 과정
+캡처 단계
+이벤트가 window객체에서 중간의 모든 DOM 객체를 거쳐 타겟 객체에 전달되는 과정
+이벤트가 거쳐가는 모든 DOM 객체의 이벤트 리스너 실행
+
+버블단계
+이벤트가 타겟에서 중간의 모든 DOM 객체를 거쳐 window 객체에 전달되는 과정
+이벤트가 거ㅌ쳐가는 모든 dom 객체 의 이벤트 리스너 실행
+
+dom 객체의 이벤트 리스너
+1 dom 객체에는 캡처 리스너와 버블 리스너 두개 모두 작성 간으
+2 이벤트 리스너 등록 시캡처 리스너인지 버블 리스너인지 구분
+3 캡처 리스너와 버블 리스너 등록
+
+addEventListener()3번째 매개 변수 이용
+true이면 캡처 리스너 false이면 버블 리스너
+var b= document .getElementById("button");
+b.addEventListener("click", capFunction, true);
+b.addEventListener("click", bubbleFunction, false);
+
+4이벤트 흐름을 중단 시킬수 있는가? 가능함
+이벤트 객체의 stoPropagation()호출
+event.stopPropagation();
+
+dom객체에는 캡쳐 리스너와 버블 리스너 두개 모두 작성 가능
+이벤트 리스너 등록시 캡처 리스너인지 버브블읹 ㅣ구분

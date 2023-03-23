@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../230320/event-6.css">
+</head>
+<body>
+    <p>사각형 내부를 클릭해 보세요</p>
+    <div id="box"></div>
+    <script src="../230320/event-6.js"></script>
+</body>
+</html>
+box를 클릭
+event 객체에서 page x, page y 프로퍼티을 가져와 알림창 표시
+page x 현재문서를 기준으로 이벤트가 발생한 가로 위치 반환
+page y 현재문서를 기준으로 이벤트가 발생한 세로 위치 반환
+
+client와 offset
+클라이언트 영역 내의 가로,세로 좌표를 제공 여기서 클라이언트 영역은 
+현재 보이는 브라우저 화면이 기준
+client x: 브라우저 페이지에서의 x좌표 위치를 반환하나 스크롤 무시하고 해당 페이지 상단을 0측정
+client y: 브라우저 페이지에서의 y좌표 위치를 반환하나 스크롤 무시하고 해당 페이지 상단을 0측정
+
+이벤트 대상이기준 
+화면 중간에 있는 박스 내부에서 클릭한 위치를 찾을 떄 
+해당 박스의 왼쪽 모서리 좌표가 0이됨
+
+화면기준 아님
+전체 문서를 기준으로 함 스크롤 화면 포함
+offset x : 이벤트 대상 객체에서의 상대적 마우스 x 좌표 반환
+offset y : 이벤트 대상 객체에서의 상대적 마우스 y 좌표 반환
+
+preventDefault (취소 할 수 있을경우)기본 동작 취소
+
+target 이벤트가 발생한 대상 변환

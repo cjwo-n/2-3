@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../230320/main.css">
+</head>
+<body>
+    <button onclick="alert('클릭');">클릭</button>
+    <script src="../230320/event-4.js"></script>
+</body>
+</html>
+//function changeBackGround(){
+    document.body.style.backGroundColor = "green";
+}
+const button = document.querySelector("button");
+button onclick = changeBackGround; 
+
+
+--------------------------------------------------------
+//const button = document.querySelector("button")
+
+button.onclick = function(){
+    document.body.style.backGroundColor = "green";
+}
+
+
+
+
+--------------------------------------------------------
+//function changeBackGround(){
+    document.body.style.backGroundColor = "green";
+}
+const button = document.querySelector("button");
+button addEventListener("click", changeBackGround); 
+
+--------------------------------------------------------
+const button = document.querySelector("button");
+
+익명함수
+button.addEventListener("click", function(){
+    document.body.style.backgroundColor = "green";
+});
+
+--------------------------------------------------------
+const button = document.querySelector("button");
+
+//화살표 함수
+button.addEventListener("Click", () => {
+    document.body.style.backgroundColor = "green"
+})

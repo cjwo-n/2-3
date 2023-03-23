@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function query(e){      //query e의 
+            var ret = confirm("네이버 이동")
+            if(ret == false){
+                e.preventDefault();
+            }
+        }
+        
+        window.addEventListener('load', init);
+        
+
+        function init(){
+            document.getElementById("naver-link").addEventListener('click', query);
+        }
+        
+    </script>
+</head>
+<body>
+    <h3>이벤트 디폴트 행동 취소</h3><hr>
+    <!-- onclick = "return query()"
+    query()메소드 내 confirm() 창에서 취소를 누르면 false값
+    리턴 받아 return false 가 되어서 디폴트 행동인 href 링크 막음 -->
+    <a href="http:/www.naver.com" id="naver-link">
+    네이버로 이동할 지 물어보는 링크</a><hr>
+
+    <form action="">
+        <input type="checkbox" onclick="noAction(event)">빵 (체크안됨)<br>
+        <input type="checkbox" checked>술 (체크됨)
+    </form>
+</body>
+</html>

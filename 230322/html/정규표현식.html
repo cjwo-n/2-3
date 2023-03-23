@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function process() {
+            var id = document.getElementById("mid").value;
+            var patt = new RegExp("^[a-zA-Z][0-9a-zA-Z]{4,7}$"); //index 값이 적용 4이면 5번쨰 글자부터8까지
+            if(patt.test(id)){
+                alert("성공");
+            }
+            else{
+                alert("다시입력")
+                document,getElementById("mid").value = "";
+                document,getElementById("mid").focus();
+            }
+        } 
+    </script>
+</head>
+<body>
+    <label for="">아이디</label>
+    <input type="text" id="mid" name="mid">
+    <input type="button" value="commit" onclick="process()">
+</body>
+</html>
+<br>
+<br>
+RegExp 안4에 들어있는 것이 정규표현식
+뜻은 대소문자 알파벳 모든 숫자 사용가능 아이디 길이는 4~7test 
+test 메소드를 활용해 id 객체에 입력된 데이터가 patt의 정보를 만족하는 지 검사
+만족하는지 반별하고 true false 반환
+
+a1234는 정규 표현식과 일치함
+첫번쨰 문자는 알파벳 문자이고 나머지 문자는 숫자 또는 알파벳 문자로 구성되어 있으며
+4-7사이를 만족 전체 문자열의 길이는 5 맨 위에 주석이랑 같은말 
+
+^: 문자열의 시작을 나타냄
+[a-zA-Z] : 소문자 또는 대문자 알파벳 문자 중 하나와 일치함
+[0-9a-zA-Z] : 숫자 또는 소문자 또는 대문자 알파벳 문자 중 하나와 일치
+{4,7}: 이런 요소(여기서는[0-9a-zA-Z])를 최소 4번 에서 최대 7번 반복?
+$ : 문자열의 끝
+문자열의 길이느 index 값으로 5~8까지

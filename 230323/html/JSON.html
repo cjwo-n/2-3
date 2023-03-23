@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        user = {
+            name : 'admin', email : 'namgarambook@naver.com', phone : '032-444-5555'
+        };      //유저에 저장된 값 출력
+                //[object Object]
+        alert(user);
+                //stringify: JSON 객체를 String 객체로 변환해줌
+        userStr = JSON.stringify(user);
+                //useStr : name : 'admin', email : 'namgarambook@naver.com', phone: '032-444-5555'
+        alert(userStr);//parse ; string 객체를 JSON 객체로 변환해줌
+        JSON.parse(userStr, function(key,value){
+            alert(key + " " + value);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>AJAX 서버와의 비동기 통신을 위한 방법
+    Asynchronous  Javascript And Xml - AJAX 풀네임
+    AJAX란 서버에 요청하는 것과 서버의 응답이 한꺼번에 일어나지 않는 것을 말함
+    요청한 후 응답을 기다리는 동안 다른 요청 가능
+    비동기적인 통신을 위해 서버와 클라이언트 사이에 주고받은 통신 방법이 XMLHttpRequest입니다
+    ES6 이후에는 fetch 사용함
+
+    XMLHttpRequest 객체
+    웹 브라우저에서 서버로 데이터를 요청하고 서버에서 자료를 받아올떄는 
+    HTTP 통신이 가능한 XMLHttpRequest 객체의 프로퍼티와 메서드를 사용해 자료를 주고 받거나 상태를 체크함
+    웹 페이지 전체가 아니라 필요한 부분만 가져올수 있다면
+
+    XMLHttpRequest
+    XML이라는 자료를 HTTP 프로토콜을 사용해 Request한다 자료 요청
+    누가 클라이언트가 응답은 서버가 자료를 전송해줌
+
+    new 예약어를 사용해서 XMLHttpRequest 객체의 인스턴스를 만든다
+    new XMLHttpRequest()
+
+    순서
+    1.XMLHttpRequest 만들어준다
+    2.어떤자료를 가져올지 알려주기
+    3.서버로 HTTP요청 보내기
+    4.서버에서 처리해주기
+    5.자료 로딩 하기
+    6.응답 자료 처리하기
+
+    open() - 어떤 자료를 가져올지 지정
+    서버로 자료를 요청할떄 어떤 방식을 사용할지 어떤 자료가 필요한지
+    그리고 비동기 처리 여부를 지정한다
+    open(방식, 자료위치, 비동기 위치)
+    방식:http 요청 방식을 지정한다 get이나 post 중 하나이고 대문자로 사용해야함
+    자료위치 : 요청할 서버의 url을 지정한다
+    비동기 여부 : 비동기 요청인지, 동기 요청인지의 여부를 판단하는 항목 true - 비동기
+    false - 동기기본적으로 비동기 처리하므로 따로 지정하지 않으면 비동기 처리됨
+
+    send() - 서버로 요청전송
+    사용자 요청을 서버로 보내느 메서드를
+    send(내용)
+    send() 괄호 안에 들어가는 매개변수는 옵션이다
+    post 방식을 사용할 경우에는 서버로 넘길 내용을 매개변수로 넘겨주고
+    get 방식을 사용할 경우 null 넘기거나 빈 상태로 남겨둠
+
+    예get 방식을 이용해 test.txt 파일을 비동기 방식으로 연결하려면 XMLHttpRequest
+    xhr.open("GET", "test.txt", true);
+    xhr.send();
+
+    JSON 가져오기 연습
+    JSON 자료는 기본적으로 서버ㄴ에 저장되어 있다
+    연습을 위해 사용자 컴퓨터를 서버로 만들어 주는 VSCODE의 라이브 서버를 사용자
+    
+    readyState 프로퍼티와
+    readyState 프로퍼티는 XMLHttpRequest객체의 현재 상태를 나타냄
+    객체에서 서버로 자료를 요청했는지 자료가 도착했는지 사용할 준비가 되어있는지 등을 알수 있ㅋ다
+    0 아직 아무 요청 하지 않은 상태
+    1 서버로 자료를 요청하고 성공한 상태
+    2 서버 요청에 대한 응답으로 헤더가 도착한 상태
+    3 서버에서 자료들이 로딩 중인 상태
+    4 자료 처리가 끝나서 프로그램에서 사용할 수 있는 상태
+    0 1 2 3 4 순서로 반복
+    Status : 200 성공
+    statusText : "OK"
+
+    readyState 값은 요청이 성공했는지를 알려주기 때문에 만약 서버에 없는 파일을 요청하더라도
+    readyState 값은 4
+    요청에 성공하고 서버에서 필요한 파일을 가져왔는지 체크하려면
+    readyState 프로퍼티 값이 4이면서 state 프로퍼티 값이 200일 경우
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4  && xhr.state === 200){
+            자료가 있고 가져오는데 성공하면
+            ...
+        }
+    }
+
+    response, responseText 프로퍼티
+    response : 요청에 대한 응답
+    responseText : 요청에 대한 응답이 문자열 형태로 저장된다 이값을 프로그래밍에 사용
+    responseType : 응답 데이터 종류
+    responseURL : 응답을보낸 url
+    responseXML : HTML이나 XML같은 형식의 데이터를 받아올떄 사용
+    
+    콘솔 창에 다음과 같이 입력하면 어떤 값을 가져왔는지 알 수 있다
+    xhr.responseText 가져온값 확인
+
+    http://jsonplaceholder.typicode.com/users
+
+    const url = 'http://jsonplaceholder.typicode.com/users'
+    fetch(url)
+    .then(response => response.json())
+    .then(users => console.log(users));
+
+    fetch (url)  코드는 url 주소에서 데이터를 가져오는 promise 객체를 반환한다
+    이 promise 객체에 대한 then() 메서드를 체이닝하여
+    promise 처리될 경우 호출되는 콜백 함수를 등록함
+
+    첫번째 then() 메서드에서는 http 응답객체인 response받아와서
+    response.json()메서드를 호출하여 응답데이터를 json형식으로 파싱한
+    promise객체 반환
+
+    두번쨰 then() 메서드에서는 이전 promise 객체가 처리된 결과인 json 데이터를 받아와서 
+    console.log() 함수를 호출해 콘솔 출력
+    이 때 출력되는 데이터는 json 데이터를 자바스크립트 객체로 파싱한 결과이다
+
+
+    프로미스
+    콜백을 사용했을떄의 복잡함을 피하기 위해 es6부터 프로미스 등자
+    처리에 성공했을 떄 실행할 함수와 성공하지 못햄ㅆ을떄 실행할 함수를 미리 약속하자
+    
+    프로미스를 사용하려면 promise 객체를 먼저 만들고
+    성공했을때 실행할 함수 resolve()와 실패했을떄 실행할 함수 reject()도 함께 지정
+    new Promise(resolve, reject)
+    프로미스는 개체를 생성(제작)하는 부분과 소비하는 부분으로 나뉜다
+    프로미스 제작 코드에서 '성공'과 '실패' 확인후 소비 코드로 알려줌

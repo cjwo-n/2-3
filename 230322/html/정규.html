@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function process() {
+            var id = document.getElementById("mid").value;
+            var patt = new RegExp("^[0-9]{4}\년(0[1-9]|1[0-2])\월(0[1-9]|1[0-9]|2[0-9]|3[01])\일$");     
+            //test 메서드는 주어진 문자열이 정규 표현식을 만족하는지 반별하고 
+            //그 여부를 true, false 반환
+            if(patt.test(id)){
+                alert("축하");
+            }
+            else{
+                alert("다시 입력");
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="">날짜입력</label>
+    <input type="text" name="mid" id="mid">
+    <input type="button" value="commit" onclick="process()">
+</body>
+</html>
+<br>
+정규표현식
+연 월 일 나타내구 정규 표현식
+[0-9]{4} : 0-9까지 4가지;숫자 연도로 받고
+(0[1-9]1[0-2]) : 첫번째 숫자는 1-9까지 두번째 0-2까지 01월부터 12월까지
+(0[1-9]1[0-9]2[0-9]3[01]) : 01일 부터 31일까지
+19961216
+
+정규표현식에서 역 슬래시\는 하리픈 앞에 사용되어 특수 문자가 아닌 
+문자 그래로의 하이푼 문자와 일치하도록 합니다 이스케이프 문자라 하고
+날짜 형식의 구분 기호ㅓ로 사용되는 하이푼 올바르게 인식 ㄷ가능
+
+두변수의 값 교환
+구조 분해를 사용하면 두 변수의 값을 서로 교환해서 할당할 떄도 편리함
+let x = 10;
+let y = 10;
+
+일반적인 방법
+    let tmp;
+    tmp = x;
+    x=y;
+    y=tmp;
+
+구조 분해를 사용한 방법
+[x,y] = [y,x]

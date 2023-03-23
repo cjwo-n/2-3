@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- setInterval(): 타임 아웃 코드 반복 실행
+    1초 간격으로 function(){
+        함수코드
+    }
+    val timerID = setInterval("f()",1000);
+    1초 주기로 f() 가 호출되도록 타이머 작동
+    타이머 해재
+    clearInter -->
+</head>
+<body>
+    <h3>텍스트가 자동으로 회전하며 마우스로 클릭하면 중단</h3><hr>
+    <div>
+        <span id="div" style="background-color: yellow;">자동 회전하는 텍스트</span>
+    </div>
+    <script>
+        var div = document.getElementById("div");
+        //200밀리초 주기로 doRotate() 호출
+        var timerID = setInterval("doRotate()",1000);
+        //div의 click 기능 event 추가 timerID가
+        div.onclick = function(e) {
+            clearInterval(timerID);
+        }
+        function doRotate() {
+            var str = div.innerText;
+            var firstChar = str.slice(0, -1);
+            var remains = str.slice(-1, str.length +1);
+            str = remains + firstChar;
+            div.innerText = str;
+        }
+    </script>
+</body>
+</html>
+String.substr(start, length)
+String.substring(start, end)
+String.slice(start, end)

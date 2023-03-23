@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var win = null;
+        function showHTML(){    //새로운 HTML창을 만들어줌
+        if(win == null || win.closed) {
+            //변수 win 값이 null 이거나 win이 닫혔을떄
+            win = window.open("", "outWin", "width=300", "height=200");
+            }
+            //window open은 새로운 팝업을 띄운다 
+            var textArea = document.getElementById("scrText");
+            
+            win.document.open();
+            
+            win.document.write(textArea.value);
+
+            win.document.closed();
+
+    }
+    </script>
+</head>
+<body>
+    <H3>HTML 문서 작성기 동적 구성</H3><hr>
+    <p>아래에 HTML 문서를 작성하고 올바른 버튼을 클릭
+        새윈도우에 HTML문서 출력
+    </p>
+
+    <textarea id="scrText" cols="50" rows="10"></textarea>
+    <br><br>
+    <button onclick="showHTML();">문서 출력</button>
+</body>
+</html>
+<!-- document.open()
+현재 브라우저 출력된 html 콘텐츠를 지우고 새로우html 페이지 시작
+즉document 객체에 담긴 DOM 트리를 지우고 새로 시작
+
+document.close()
+현재 브라우저에 출력된 html페이지 완성
+
+이벤트란 웹 브라우저나 사용자가 실행하는 어떤 동작의 의미
+
+폼과 관련된 이미지
+blur 폼요소에 포커스 잃었을떄 발생
+change 목록이나 체크상태 등 변경시 발생
+focus 폼요소에 포커스를 놓았을떄 발생
+reset 폼이 리셋 됬을떄
+submit submit 버튼을 클릭했을때 발생
+
+이벤트가 살생하면 그에 따른 연결 동작잉 ㅣㅇㅆ어야함
+이렇게 이벤트를 처리하는 것을 이벤트 처리기 또는 이벤트 핸들러라고 함수가
+
+html 태그에 연결하기
+이벤트가 발생한 html 태그에 직접 함수 연결
+1. <태그 on이벤트명 ="함수명">
+<button onclick="alert('click')">click</button>
+
+웹 요소에 직접 함수 연결
+스크립트 소스를 변경해도 html 마크업에는 영향을 주지 않게 하려면
+이벤트 처리기도 스크립트 소스에서 처리하는 것이좋다
+2. 요소.on이벤트명 = 함수 
+const button = document.querySelector("button") 
+button.onclick = function(){
+    document.body.style.backGroundColor = "green";
+}
+클릭시 onclick 실행할 함수 표현식 
+
+함수를 미리 만들어 두었다면 그 함수를 지정 가능 
+이떄 실행할 함수 이름 뒤에 줄괄호(()) 사용하지 않는다면
+function changeBackGround(){
+    document.body.style.backGroundColor = "green";
+}
+const button = document.querySelector("button");
+button onclick = changeBackGround; 괄호 생략
+
+addEventListener 함수 사용
+이벤트 리스너는 어떤 DOM 요소에서도 사용 가능
+addEventListener 함수 사용
+요소.addEventListener(이벤트, 함수 , 캡처 여부);
+요소 : 이벤트가 발생한 요소에
+이벤트 : 이벤트 유형
+
+여기에서는 이벤트 이름 앞에 on을 붙이지 않고 click이나 keypress 같은 이벤트 이름을 그대로 사용
+함수 : 이벤트발생시 실행할 함수 ,기본함수 익명함수 둘다 가능
+익명함수 시 event 객체 사용해 다양한 것 처리가능
+캡쳐여부 : 이벤트를 캐처링하는지 여부 true,false
+
+function changeBackGround(){
+    document.body.style.backGroundColor = "green";
+}
+const button = document.querySelector("button");
+button onclick = changeBackGround; 
+addEventListener()로 사용 -->
+

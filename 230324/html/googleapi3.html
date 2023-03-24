@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas{
+            width: 500px;
+            height : 400px;
+            background-color: #ccc;
+        }
+    </style>
+    
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEZO9BreKdmSvITLpD4BhWKfuiDOsny3I"></script>
+    <script>
+        
+        
+        function myMap () {
+            var mapCanvas = document.getElementById("myCanvas");
+            var myLatLNg = {
+                center:myLatLNg,
+                zoom:16,
+                mapTypeId : google.maps.mapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({
+                position: myLatLNg,
+                map : map,
+                draggable:true,
+                title: `지하철 강남에 하차`
+            });
+            var contentString = `<div style="width:100px, height:50px;">여기서 만나자</div>`;
+            var infowindow = new google.maps.InfoWindow({
+                content : contentString,
+                size: new google.maps.Size(200,100)
+            })
+            google.maps.event.addEventListener(marker, "click", function (){
+                infowindow.open(map, marker);
+                if(marker.getAnimation() != null){
+                    marker.setAnimation(null);
+                }else{
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
+            marker.setMap(map);
+        }
+
+    </script>
+</head>
+<body onclick="myMap()">
+    <div id="myCanvas">
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6330.81387223415!2d127.0229208276995!3d37.49831933120643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15a2cc3f2a7%3A0xd2e44a2795272fca!2z6rCV64Ko7Jet!5e0!3m2!1sko!2skr!4v1679639415606!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+    </div>
+    
+</body>
+</html>

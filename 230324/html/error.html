@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>예외 처리 </h1>
+    <script>
+        try{
+            consol.log("안녕?");
+            add;
+            console.log("실행");
+        } catch(err){
+            console.error(`오류 : ${err}`);
+            console.error(`오류 : ${err.name}`);
+            console.error(`오류 : ${err.message}`);
+
+        }finally{
+            console.log("끝");
+        }
+    </script>
+</body>
+</html>

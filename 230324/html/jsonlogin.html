@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function logIn(){       //json 객체 생성
+            var emp = {"name" : "홍길동", "point" : "15000", "id" : "hong", "pw" : "1234"};
+            var a = document.getElementById("id").value;
+            var b = document.getElementById("pw").value;
+            if(emp.id == a && emp.pw == b)
+            document.getElementById("confirm").innerHTML
+            = "<span style='color:green'>" + emp.name+ "님 환영합니다.<br>현재 포인트는"
+                + emp.point + "점입니다.</span>";
+                else
+                document.getElementById("confirm").innerHTML
+                ="<span style='color:red'>아이디 혹은 비밀번호 틀림.</span>";
+        }
+    </script>
+</head>
+<body>
+    <label for="input">로그인 화면</label><br><br>     
+    <input type="id" id="id" name="id">아이디 <br>
+    <input type="password" id="pw" name="pw">패스워드<br>
+    <input type="button" onclick="logIn()" value="logIn">
+    <div id="confirm"></div>
+</body>
+</html>
+json은 네트워크 데이터 전송방식의 표준 format 으로 사용되고 잌ㅆ다
+json은 string 문자열이므로 실제 자바 스크립트에서 사용하기 위해 파싱을 하여 객체로 사용할수 있는데
+이럴때 사용하는 객체가 JSON 객체이다
+JSON 객체에는 parse와 stringify가 내장되어 있어
+string -> object로  parse
+object -> string으로 stringify 변환해 주는것
+
+동기처리 방식과 비동기 처리 방식
+예) 커피 전문점에서 커피 주문하고 마시기
+
+동기처리방식(synchronous)
+a라는 사람이 커피를 주문하면 그 주문을 받ㅇ ㅏ커피를 만들고 a에게 넘겨준다
+뒤에 아무리 많은 손님이 있어도 한번에 하나의 손님만 처리한다
+주문을 받고 커피를 만드는 것이 한 과정이기 떄문에 대기 줄이 점점 길어지고 주문을
+처리하는데 시간이 걸림
+
+비동기처리방식(asynchronous)
+a라느 사람이 커피를 주문하면 그 주문을 주ㅁ방으로 넘기고 
+a에게는 진동벨을 주면서 커피가 완성되면 알려 주겠다고 한다
+대기하고 있던 b의 주문을 받고 진동벨을 건네준다
+대기하고 있던 b의 주문을 받고 진동벨을 건네준다
+중간에 a의 커피가 완성되면 a에게 알려줌

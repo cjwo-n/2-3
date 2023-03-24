@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas{
+            width: 500px;
+            height : 400px;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="구글 api 주소"></script>
+    <script>
+        var myCenter = new google.maps.LatLng(37.498146, 127.027557);
+        function myMap(){
+        var mapProp = {
+            center: myCenter,
+            zoom:5,
+            mapTypeId:google.maps.mapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({
+            position:myCenter,
+            animation:google.maps.Animation.BOUNCE
+        })
+        marker.setMap(map);
+    }
+    </script>
+</head>
+<body onload="myMap()">
+    <div id="googleMap" style="width:500px; height: 300px;"></div>
+</body>
+</html>

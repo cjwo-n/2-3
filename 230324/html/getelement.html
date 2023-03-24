@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="aa" value="12"></div>
+    <div class="aa" value="123"></div>
+    <div class="aa" value="1234"></div>
+    <div class="aa" value="12345"></div>
+    <div class="aa" value="123456"></div>
+    <script>
+        let aa =document.getElementsByClassName("aa");
+
+        for(var i = 0; i < aa.length; i++){
+            let bb = aa[i].getAttribute('value');
+            console.log(bb);
+        }
+    </script>
+</body>
+</html>
+각 div 요소의 value 속성값을 정상적으로 출력
+하지만 html 표준에서는 value 속성이 일반적으로 input 태그와 같은 form 요소에 사용되기 떄문에
+div 요소에서는 data-* 속성을 사용하는것이 좋습니다.
+
+<!-- <div class="aa" data-value="12"></div>
+    <div class="aa" data-value="123"></div>
+    <div class="aa" data-value="1234"></div>
+    <div class="aa" data-value="12345"></div>
+    <div class="aa" data-value="123456"></div>
+    <script>
+        let aa =document.getElementsByClassName("aa");
+
+        for(var i = 0; i < aa.length; i++){
+            let bb = aa[i].getAttribute('data-value');
+            console.log(bb);
+        }
+    </script> -->
+    <!-- 그냥 위에 코드랑 같은 코드임 value 대신 data-value사용한것 -->
+
+<!-- 코드에서 bb=aa[0].value 라인이 -->

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>예외처리</h1>
+    <script>
+        let jj = `{"grade" : 3, "age" : 25}`;
+
+        try{
+            let user = JSON.parse(jj);
+            if(!user.name){
+                throw new Error("사용자 이름이 없습니다");
+            }
+        } catch (err){
+            console.error(err);
+            console.error(`error name : ${err.name}`);
+            console.error(`error message : ${err.message}`);
+        }
+    </script>
+</body>
+</html>

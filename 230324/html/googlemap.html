@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>getCurrentPosition()로 현재 위치 파악</h3><hr>
+    <div id="msg">이 곳에 위치 정보 출력</div>
+    <div id="map"></div>
+    <script>
+        if(!navigator.geolocation)
+        alert("지원하지 않음");
+        else
+        navigator.geolocation.getCurrentPosition(found);
+        function found(position){
+            var now = new Date(position.timestamp);
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            var acc = position.coords.accuaracy;
+            lat = lat.toPrecision(7); lon = lon.toPrecision(7);
+            var text = "현재 시간" + now.toUTCString() + "<br>";
+            text += "현재 위치 (위도)" + lat + ", 경도" + lon + ")<br>";
+            text += "정확도" + acc + "m<br>";
+            document.getElementById("msg").innerHTML = text;
+            var img = new Image();
+            img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat
+        + "," + lon + "&zoom=13&size=400x300&sensor=false&markers=color:red%7Clabel:C%7C"
+                + lat + "," + lon + "&key=AIzaSyBY9GksDVvEAR31JLd5IzBBVgLSSSkKols";
+                document.getElementById("map").appendChild(img);
+        }
+    </script>
+</body>
+</html>
+이미지 객체를 생성합니다

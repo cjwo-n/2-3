@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="promise.js"></script>
+</body>
+</html>
+프로미스
+콜백안에 콜백 그안에 또 콜백 콜백 지옥
+콜백을 사용했을때의 복잡함을 피하기 위해 es6부터 프로미스 등장
+
+처리에 성공했을 때 실행할 함수와 성공하지 못했을때 실행할 함수를 미리 약속함
+
+프로미스를 사용하려면 promise 객체를 먼저 만들고
+성공했을때 실행할 함수 resolve() 와 실패했을때 실행할 함수 reject()도 함께 지정
+new Promise (resolve, reject)
+프로미스는 객체를 생성 제작하는 부분과 소비하는 부분으로 나뉨
+
+프로미스를 실행할때 사용하는 함수
+.then() - 프로미스에서 성공했다는 결과를 보냈을때 실행할 소스
+.catch() - 프로미스에서 실패했다는 결과를 보냈을때 실행할 소스
+.finally() - 프로미스의 성공과 실패에 상관없이 실행할 소스
+프로미스객체.then().catch().finally();
+프로미스객체
+.then()
+.catch()
+.finally();

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 50%;
+        }
+        #map{
+            width: 100%;
+            height: 100%;
+            border: 1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <button onclick="initMap(seoul);">seoul</button>
+    <button onclick="initMap(london);">london</button>
+    <script src="http:/maps.googleapis.com/maps/api/js?key=AIzaSyDEZO9BreKdmSvITLpD4BhWKfuiDOsny3I"></script>
+    <script>
+        function initMap(pos){
+            var myLatlng = pos;
+            var map = new google.maps.Map(document.getElementById('map'),{
+                zoom:15,
+                center:myLatlng
+            });
+            var marker = new google.maps.Marker({
+                position:myLatlng,
+                map:map,
+                title: 'Click to zoom'
+            });
+            map.addEventListener('center_changed', function(){
+                window.setTimeout(function (){
+                    map.panTo(marker.getPosition());
+                }, 3000);
+            });
+            marker.addListener('click', function(){
+                map.setZoom(15);
+                map.setCenter(marker.getPosition);
+            });
+        }
+        var seoul = {lat: 37.566535, lng: 126.977969};
+        var london = {lat: 51.507351, lng: -0.127758};
+        initMap(seoul);
+    </script>
+</body>
+</html>
+Connectionless 프로토콜 (비연결 지향)
+클라ㅣㅇ언트가 서버에 요처 request 했을때 그 요청에 맞는 응답 을 보낸 후 연결을 끊는 처리 방식이다
+
+Stateless 프로토콜 - 상태정보 유지 안한
+클라이언트의 상태 정보를 가지지 않는 서버 처리 방식
+클라이언트와 첫번째 통신에서 데이터를 주고 받아도 두뻔째 통신에서 이전 데이터를 유지하지 않느다
+실제로 데이ㅓㅌ 유지가 필요한 경우 많음
+
+why 정보가 유지되지 않으면 매번 페이지를 이동할떄마다 로그인을 다시 하거나
+상품을 선택했는데 구매 페이지에서 선택한 상품의 정보가 없거나 하는 등으이 일ㅇ ㅣ발생할 수 있다
+상품을 선택했는데 구매페이지에서 선택한 상품의 정보가 없거나 하는 등ㅇ의 일이 발생할 수 있다
+
+따라서stateful 경우를 대처하기 위해 쿠기와 세션을 사용함
+여기서 쿠키와 세션의 차이점은 크게 상태 정보으 ㅣ저장 위치인다
+
+쿠키는 클라이언트에 저장 세션은 서버에 저장
+보안 쿠키 - 세션 - 토큰 우측 순차적으로 보안이 강화됨
+
+서버와 클라이언트가 통신을 할떄통신이 연속적으로 이어지지 않고 한 ㅓㅂㄴ 통신이 되면 끊어진다
+따라서 서버는 클라이언트가 누구인지 계속 인증을 해야함 하지만 그것은 매우 귀찬
+또한 웹페이지으 ㅣ로딩을 느리게 만드는 요인이 됨
+그런 번거로움을 해결하는 방법이 바로 쿠키와 세션이다
+정리하면 클라이언트와 정보 유지를 하기 위해 사용하는 것이 쿠키화 세션
+쿠기란
+http일종으로 사용자가 어떠한 웹 사이트를 방문할때 
+그 사이트가 사용하고 있는 서버에서 사용자의 컴퓨터에 저장하는 작은 기록 정보 파일이다
+http에서 클라이언트의 상태 정보를 클라이언트으 ㅣpc에 저장
+필요시 정보를 참조하거나 재사용 가능
+
+저장소 종류
+쿠키 웹 서버가 브라우저에게 지시하여 사용자 로컬 컴퓨터에 저장하는 4k 이하의 작은 데이터
+웹 스토리지 쿠키의 문제점을 보완하려고 5mb 서버로 안보냄 많은 양의 정보를 안전하게 보관한다
+로컬 파일(local file) 인덱스트 데이터 베이스(indexed db)
+
+쿠키의 생성 및 사용 과정
+1. 쿠키는 웹 서버가 생성하여 브라우저로 보냄
+사용자가 어떤 웹 서버에 처음 접속할 때, 
+웹 서버가 다음 요청에서 그 사용자를 기억할 수 있도록 쿠키(쿠키이름과 값)를 만들어 전송
+
+2. 쿠키를 받은 브라우저는 로컬 컴퓨터에 저장
+
+3. 로컬 컴퓨터에서 동일한 웹 서버에 요청할 때 쿠키를 함께 전송
+웹 서버로 요청하는 경우 : 웹 페이지 요청, 이미지 요청 등 모든 웹 자원 요청 포함
+
+4. 쿠키를 받은 웹 서버는 어떤 사용자로부터 요청이 왔는지 알 수 있음 
+사용 예시
+방문했던 사이트에 다시 방문하였을 때 아이디와 비밀번호 자동 입력
+팜업창을 통해 ＂오늘 이창을 다시 보지 않기＂체크
+쿠키 구성 : 6개의 속성으로 구성
+name = value; Expires 만료시간 = [Date]; Domain=[Domain]; Path=[Path]; [Secure]; HttpOnly
+암호화한 경우에만 쿠키전송 가능... HTTP 통신외에 다른 통신으로 쿠키 전송 불허

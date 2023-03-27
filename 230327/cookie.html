@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function GetCookie(name){
+            var pairs = document.cookie.split(";");  //cookie , split 확인
+            for(var i = 0; i < pairs.length; i++){
+                var pair = pairs[i].trim();
+                var unit = pair.split("=");
+                if(unit[0]==name)
+                return unescape(unit[1]);
+            }
+            return null;
+        }
+        function SetCookie(name, value, expireDate){
+            var cookieStr = name + "=" + escape(value) + 
+            (expireDate == null?"" : ("; expires="+ expireDate.toGMTString()));
+            document.cookie = cookieStr;
+        }
+        //쿠키사례 age = 23; expires=Mon 01-Aug-2016 00:00:01
+    </script>
+</head>
+<body>
+    <script>
+        var username = GetCookie("username")
+        var count = GetCookie("count")
+        var expire = new Date();
+        if(username == null){
+            count = 0;
+            username = prompt("이름을 입력해 주세요","");
+            if(username == null){
+                alert("이름을 입력하면 보다 나은 서비스를 제공할수 있습니다");
+                username = "나가";
+            }else{
+                expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); //유효기간 1년
+                SetCookie("username", username, expire);
+            }
+        }
+        count++;
+        expire.setTime(expire.getTime()+(365 * 24 * 3600 * 1000));
+        SetCookie("count", count, expire);
+        document.write("<p>어서와~" + username + "님의" + count + "번째 방문 환영")
+            console.log(username);
+            // var count = new count;
+            // for (count of count) {
+            // }
+    </script>
+</body>
+</html>
+<!-- 내장 함수
+
+    세션 스토리지 객체
+    세션
+    쿠기는 저장 용량이 4kb에 불과하고 불필요한 트랲픽을 발생
+    세션은 키 값으로 이루어진 문자열 쌍으로 저장 가능
+    일정 시간동안 같은 사용자로부터 들어오는 일련의 요구를 하나의 상태로 보고 
+    그 상태를 이정하게 유지시키는 기술
+    여기서 일정 시간은 방문자가 웹 브라우저를 통해 웹 서버에서 접속한 시점으로부터
+    웹 브바우저를 종료해 연결을 끝낸는 시점
+    즉 방문자가 웹 서버에서 접속해 있는 상태를 하느이 단위로 보고 그것을 세션이라함
+    한 윈도우에서 연결된 웹 사이트의 웹 페이지들끼리 데이터를 ㄹ주고 받는 임시 저장 공간
+
+    세션 특징
+    웹 서버에 웹 컨테이너의 상태를 유지하기 위한 정보 저장
+    웹 서버의 저장되는 쿠키 = 세션 쿠키
+    브라우저 탭 창을 닫거나 서버에서 세션을 삭제했을 떄만 소멸 쿠키보다 비교적 보안 좋음
+    저장 데이터에 제한 없음 서버용량이 허용하는한
+    각 클라이언트 고유 session id 부여
+    session id 로 클라이언트를 구분해 각 클라이언트 요구에 맞는 서비스 제공
+    윈도우 웹 사이트가 로드될떄 세션ㅅ ㅡ토리지 생성
+    하나의 윈도우에 로드된 웹 사이트의 모든 웹 페이지들이 세션 스토리지 공유
+    한 윈도우에 여러 세션 스토리지 생성 가능
+    윈도우마다 세션 스토리지를 별도 생성 윈도우 사이에 공유 ㅏㅇㄴ됨
+
+    (3) 세션의 동작 순서
+	- 클라이언트가 페이지를 요청한다 (사용자가 웹 사이트 접근)
+	- 서버는 접근한 클라이언트의 Request-Header 필드인 Cookie를 확인하여, 클라이언트가 해당 session-id를 보냈는지 확인한다
+	- session-id가 존재하지 않는다면, 서버는 session-id를 생성해 클라이언트에게 돌려준다
+	- 서버에서 클라이언트로 돌려준 session-id를 쿠키를 사용해 서버에 저장한다
+
+  (4) 사용 예시
+	- 쿠키 이름 : JSESSIONID
+	- 클라이언트는 재접속 시, 이 쿠키(JSESSIONID)를 이용하여 session-id 값을 서버에 전달
+	- 화면이 이동해도 로그인이 풀리지 않고 로그아웃하기 전까지 유지
+

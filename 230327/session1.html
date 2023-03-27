@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>sessionStorage로 데이터 저장 하기</h2><hr>
+    <p>웹 브라우저 탭이나 창을 닫으면 Counter는 리셋됨</p>
+    <p>하지만 f5를 누르면 리셋되지 않음</p>
+    <div id="counter"></div>
+    <p><button onclick="clickGrowth();">카운터 증가</button></p>
+    <p><button onclick="reset();">리셋</button></p>
+    <script>
+        function clickGrowth(){
+            if(typeof(sessionStorage)!="undefined"){ //typeof는 데이터 타입을 확인하기 위해 사용
+                if(sessionStorage.clickcount){      //sessionStorage에 대한 데이터 값은 key값(속성)
+                    sessionStorage.clickcount++;
+                }else{
+                    sessionStorage.clickcount = 1;
+                }
+                document.getElementById("counter").innerHTML = 
+                "Counter의 현재 횟수는" + sessionStorage.clickcount + "입니다";
+            }else{
+                document.getElementById("counter").innerHTML = 
+                "이 문장은 사용자의 웹 브라우저가 web Storage API를 지원하지 않을때 나타냅니다"
+            }
+        }
+        function reset(){
+            sessionStorage.clear();
+            document.getElementById("counter").innerHTML = 
+            "Counter의 현재 횟수는" + sessionStorage.clickcount + "입니다"
+        }
+    </script>
+</body>
+</html>

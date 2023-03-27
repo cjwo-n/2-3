@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방문 카운트 쿠키</title>
+<script>
+    function GetCookie(name) {
+        var pairs = document.cookie.split(";");     //쿠키 문자열을 ";"을 경계로 분할
+        for (var i=0; i < pairs.length; i++) {
+            var pair = pairs[i].trim(); //쿠키 앞 뒤 빈칸 제거
+            var unit = pair.split("="); //쿠키 문자열을 "="을 경계로 분할
+            if(unit[0] == name) //문자 디코딩 username = %uC6CC%uB2C8
+                return unescape(unit[1]);
+        }
+        return null;
+    }
+    function SetCookie(name, value, expireDate){
+        //escape : 아스키문자에 해당하지 않는 문자들은 모두 유니코드 형식으로 변환해준다.
+        var cookieStr = name + "=" + escape(value) + 
+            (expireDate == null ? "" : ("; expires=" + expireDate.toGMTString()));
+        document.cookie = cookieStr;
+        //esacpe(인코딩)
+        // 날짜 정보는 Date 객체를 사용해 toGMTString() 함수ㅗㄹ 변경해서 날짜 문자열을 생성해서 사용.
+        // 쿠키 값은 특수 문자나 2바이트 문자 처리를 위해서 escape() 함수로 이스케이핑을 하는 것을 추천/
+            //아래는 삼항 연산자 expireDate가 null 이면 ""를
+            // 거짓이라면 "; expires = " + expireDate.toGMTString())를 cookieStr에 연결한다.
+    }  // "escape(value)"는 문자열에서 특정 문자를 인코딩하여 안전하게 전송할 수 있도록 만드는 함수이다.
+    // 특수 문자나 공백 등을 포함한 문자열도 안전하게 전송, 모두 %xx 형식으로 변환하여 인코딩합니다.
+    // 현재는 권장되지 않습니다. 현재는 encodeURIComponent()와 같은 다른 함수를 사용하는 것이 좋습니다.
+</script>
+</head>
+<body>
+    <script>
+        // 쿠키를 생성
+        var username = GetCookie("username");
+        var count = GetCookie("count");
+        var expire = new Date(); // 현재시간
+        // 입력된 username이 없을 경우, username입력
+        if(username == null){
+            count = 0;
+            username = prompt("이름을 입력해 주십시오. ", "");
+            if(username == null) { //취소를 누른 경우
+                alert ("이름을 입력하시면 보다 나은 서비스를 제공받을 수 있습니다.");
+                username = "홍길동";
+            } else {
+                // 쿠키 존재시간 1년 지정 (초 단위), expire(만료, 쿠키의 유효시간)
+                expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후 만료
+                SetCookie("username", username, expire);
+            }
+        }
+        count ++;
+        expire.setTime(expire.getTime()+ (365 * 24 * 3600 * 1000));   //1년 후 만료       
+        // 쿠키 생성
+        SetCookie("count", count, expire);
+        document.write("<p>어서오십시오. " + username + "님의 " +  count +  "번째 방문을 환영합니다.</p>"); 
+        console.log(username);
+    </script>
+</body>
+</html>

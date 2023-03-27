@@ -1,0 +1,174 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+#nav{
+    width: 100%;
+    height: 100px;
+    background:#000000;
+    color: rgb(244, 243, 243);
+    align-items: center;
+    display: flex;
+}
+.logo{
+    font-size: 30px;
+}
+div#nav>ul{
+    padding-left: 13%;
+    padding-top: 40px;
+    font-size: 20px;
+    display: flex;
+}
+
+div#nav > ul > li{
+    list-style: none;
+    display: inline;
+    padding-left: 5%;
+}
+/* #use{
+    list-style: none;
+    display: inline;
+    right: 1%;
+} */
+body{
+    background-color: black;
+    color: white;
+}
+video{
+   width: 100%;
+   height: 80%;
+}
+
+#cide {
+    margin-left: 3%;
+    /* margin-top: 10%; */
+    margin-top: 5%;
+    border: 1px white solid;
+    width: 12%;
+    font-size: 26px;
+    text-align: left;
+    list-style: none;
+    padding-left: 1%;
+    float: left;
+    position: absolute;
+}
+#cide > ul > li{
+    font-size: 20px;
+    text-align: left;
+    padding-left: 12%;
+    list-style: none;
+} 
+#big_box{
+    float: left;
+    margin-left: 18%;
+    margin-top: 2%;
+    width: 70%;
+    float: left;
+}
+#num1{
+    font-size: 32px;
+}
+#num1 > .box1{
+    border: 3px white solid;
+    margin-top:1%;
+    margin-left: 0%;
+    font-size: 21px;
+    width: 70%;
+    
+}
+.box1 > ul > li{
+    list-style: none;
+    padding-left: 3%;
+    padding-top: 2%;
+    /* border-bottom: 1px solid #fff; */
+}
+#num2{
+    margin-top: 2%;
+    font-size: 20px;
+}
+#num2 > .box2{
+    border: 3px white solid;
+    margin-top:1%;
+}
+#num2 > .box2 > table{
+    /* padding-right: 2%; */
+    padding-top: 1%;
+    line-height: 210%;
+    font-size: 25px;
+    text-align: center;
+    
+
+}
+th{
+    width: 5%;
+}
+
+
+
+#num3{
+    margin-top: 2%;
+    font-size: 20px;
+    clear: both;
+    margin-left:5% ;
+    width: 90%;
+    text-align: center;
+}
+#num3 > .box3{
+    border: 3px white solid;
+    
+    
+    margin-top:1%;
+    clear: both;
+}
+.push3{
+    float: right;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-style: none;
+}
+.zzzz{
+    margin-right: 5%;
+    margin-top: 5%;
+    font-size: 20px;
+    float: right;
+    width: 25%;
+}
+.zzzz > .box4{
+    border: 3px white solid;
+    height: 600px;
+    margin-top:1%;
+    
+}
+
+.search{
+    text-align: center;
+}
+button{
+    font-size: 25px;
+    background-color: #000000;
+    color: white;
+    border-style: none;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    border-style: none;
+}
+
+input[type="text"]{
+    background-color: #000000;
+    font-size: 25px;
+    width: 500px;
+    text-align: center;
+    border-style: none;
+}
+input[type="text"]:hover{
+    background-color: white;
+    color: black;
+    border-style: none;
+}
+
+/* ---------------------------modal---------------- */

@@ -25,6 +25,11 @@
 // new1.addEventListener("click", () =>{
 //     modalBox.classList.toggle("active")
 // })
+
+
+
+// type of fragrance
+//aldehyde note
 const aldehydic = document.querySelector("#alde")
 const modalBoxAl = document.querySelector("#modal-boxAl");
 const closeAl = document.querySelector("#closeAl");
@@ -36,17 +41,80 @@ aldehydic.addEventListener("click", () =>{
 closeAl.addEventListener("click",()=> {
     modalBoxAl.classList.remove("active")
 })
-// closeAl.addEventListener("keydown",(e) =>{
-//     var key=e.key;
-//     if(key == " "){
-//         modalBoxAl.classList.remove("active")
-//     }
-// })
-// const mytxt =document.querySelector("#mytxt")
+//citrus note
+const citrus = document.querySelector("#citrus")
+const modalBoxCit = document.querySelector("#modal-box-citrus");
+const closeCitrus = document.querySelector("#close-citrus");
 
-// mytxt.addEventListener("click",() =>{
 
-// })
+citrus.addEventListener("click", () =>{
+    modalBoxCit.classList.toggle("active")
+})
+closeCitrus.addEventListener("click",()=> {
+    modalBoxCit.classList.remove("active")
+})
+//floral note
+const floral = document.querySelector("#floral")
+const modalBoxFloral = document.querySelector("#modal-box-floral");
+const closeFloral = document.querySelector("#close-floral");
+
+
+floral.addEventListener("click", () =>{
+    modalBoxFloral.classList.toggle("active")
+})
+closeFloral.addEventListener("click",()=> {
+    modalBoxFloral.classList.remove("active")
+})
+//spicynote
+const spicy = document.querySelector("#spicy")
+const modalBoxSpicy = document.querySelector("#modal-box-spicy");
+const closeSpicy = document.querySelector("#close-spicy");
+
+
+spicy.addEventListener("click", () =>{
+    modalBoxSpicy.classList.toggle("active")
+})
+closeSpicy.addEventListener("click",()=> {
+    modalBoxSpicy.classList.remove("active")
+})
+
+//woody note
+const woody = document.querySelector("#woody")
+const modalBoxWoody = document.querySelector("#modal-box-woody");
+const closeWoody = document.querySelector("#close-woody");
+
+
+woody.addEventListener("click", () =>{
+    modalBoxWoody.classList.toggle("active")
+})
+closeWoody.addEventListener("click",()=> {
+    modalBoxWoody.classList.remove("active")
+})
+//animalic note
+const animalic = document.querySelector("#animalic")
+const modalBoxAnimal = document.querySelector("#modal-box-animalic");
+const closeAnimal = document.querySelector("#close-animalic");
+
+
+animalic.addEventListener("click", () =>{
+    modalBoxAnimal.classList.toggle("active")
+})
+closeAnimal.addEventListener("click",()=> {
+    modalBoxAnimal.classList.remove("active")
+})
+
+//oriental
+const oriental = document.querySelector("#oriental")
+const modalBoxOriental = document.querySelector("#modal-box-oriental");
+const closeOriental = document.querySelector("#close-oriental");
+
+
+oriental.addEventListener("click", () =>{
+    modalBoxOriental.classList.toggle("active")
+})
+closeOriental.addEventListener("click",()=> {
+    modalBoxOriental.classList.remove("active")
+})
 
 //--------------------------news 웹사이트 이동------------------------
 const part1 = document.querySelector("#part1")
@@ -90,3 +158,4 @@ close2.addEventListener("click", () =>{
 // const newChild = document.createElement("p");
 // newChild.textContent = "세 번째 단락";
 // parent.appendChild(newChild);
+

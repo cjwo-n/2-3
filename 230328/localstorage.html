@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //아래 명령어를 통해 함수 실행시킴
+        // 이 함수는 이름이 없어 무명 함수
+        window.onload = function(){
+            var countbtn = document.getElementById("countbtn");
+            var clearbtn = document.getElementById("clearbtn");
+            countbtn.onclick = function(){
+                if(typeof(localStorage != "undefined")){    
+                    //localstorage라는 저장소가 또 있다 정보 만료 날짜가 없다(무기한)
+                    //localstorage는 키와 값의 형태로 저장한다
+                    //localstorage todtjd dksgkfEo
+                    if(localStorage.clickcount){
+                        localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                    }else{
+                        localStorage.clickcount = 1;
+                    }
+                    document.getElementById("counter").innerHTML = 
+                    "카운터의 현재 횟수는" + localStorage.clickcount + "입니다";
+                }else{
+                    document.getElementById("counter").innerHTML = 
+                    "이 문장은 사용자의 웹 브라우저가 web storage api를 지원하지 않을때 나타냄"
+                }
+            }
+            clearbtn.onclick = function(){  
+                localStorage.clear();
+                document.getElementById("counter").innerHTML = 
+                "카운터의 현재 횟수는 " + localStorage.clickcount + "입니다";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>local storage 데이터 저장하기</h2><hr>
+    <p>브라우저 탭이나 창을 닫아도 counter 회수는 초기화 안됨</p>
+    <p>
+        <button id="countbtn">증</button>
+        <button id="clearbtn">감</button>
+    </p>
+<div id="counter"></div>
+</body>
+</html>
+로컬 스토리지.. 크기는 브라우저마다 다르지만 보통 5~10MB
+로컬 스토리지의 생성과 소멸 공유
+윈도우에 상관없이 웹 서버당 하나씩 생성
+브라우저 종료하거나 컴퓨터가 꺼져도 ㄷ존재
+웹 사이트의 모든 웹 페이지가 로컬 스토리지 공유
+로컬 스토리지 용도
+오프라인 상태에서 웹 애플리케이션이 로컬 컴퓨터의 로컬 스토리지에 저장 가능
+

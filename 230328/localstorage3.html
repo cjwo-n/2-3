@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>로컬 스토리지에 storageEvent</h3><hr>
+    품목명 : <input type="text" id="item" size="10">
+    개수 : <input type="text" id="count" size="10">
+    <button id="save" onclick="store()">저장</button>
+    <button id="retrieve" onclick="retrieve()">검색</button>
+    로컬 스토리지의 변경 내용(storageEvent) : <br>
+        <textarea id="textarea" name="" id="" cols="60" rows="6"></textarea>
+    <script>
+        window.addEventListener("storage", StorageEventListener, false)
+        function storageEventListener(e){
+                var eventDetail = 
+                "key:\t\t\t" + e.key + "\n" +
+                "oldValue : \t\t" + e.oldValue + "\n" +
+                "newValue : \t\t" + e.newValue + "\n" +
+                "storageArea : \t" + e.storageArea + "\n" +
+                "url : \t\t\t" + e.url;
+                document.getElementById("textarea").innerHTML = eventDetail;
+            }
+    </script>
+    <script>
+        var item = document.getElementById("item");
+        var count = document.getElementById("count");
+        function store(){
+            if(!window.localStorage){
+                alert("로컬스토리지를 지원하지 ㅇ낳습니다")
+                return;
+            }
+            var oldValue = localStorage.getItem(item.value);
+            localStorage.setItem(item.value, count.value);
+            var newValue = localStorage.getItem(item.value);
+
+            var fakeEvent = {
+                key : item.value,
+                oldValue : oldValue,
+                newValue : newValue,
+                storageArea : localStorage,
+                url : window.location.href
+            };
+            storageEventListener(fakeEvent);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>로컬 스토리지에 storageEvent</h3><hr>
+    품목명 : <input type="text" id="item" size="10">
+    개수 : <input type="text" id="count" size="10">
+    <button id="save" onclick="store()">저장</button>
+    <button id="retrieve" onclick="retrieve()">검색</button>
+    로컬 스토리지의 변경 내용(storageEvent) : <br>
+        <textarea id="textarea" name="" id="" cols="60" rows="6"></textarea>
+        <script>
+            window.addEventListener("storage", storageEventListener, false);
+            function storageEventListener(e){
+                var eventDetail = 
+                "key:\t\t\t" + e.key + "\n" +
+                "oldValue : \t\t" + e.oldValue + "\n" +
+                "newValue : \t\t" + e.newValue + "\n" +
+                "storageArea : \t" + e.storageArea + "\n" +
+                "url : \t\t\t" + e.url;
+                document.getElementById("textarea").innerHTML = eventDetail;
+            }
+        </script>
+        <script>
+            var item = document.getElementById("item");
+            var count = document.getElementById("count");
+            function store(){
+                if(!window.localStorage){
+                    alert("로컬스토리지를 지원하지 않습니다");
+                    return;
+                }
+                localStorage.setItem(item.value, count.value);  //로컬스토리지의 키, 값 저장
+            }
+            function retrieve(){
+                if(!window.localStorage){
+                    alert("로컬스토리지를 지원하지 않습니다");
+                    return;
+                }
+                var val = localStorage.getItem(item.value);
+                if(val == null){
+                    alert(item.value + "는 구입 리스트에 없다");
+                }else{
+                    count.value = val;
+                }
+            }
+        </script>
+</body>
+</html>
+storageEvent는 로컬 스토리지의 변경사항을 감지할떄 사용되는 이벤트 입니다 
+그러나 이벤트는 현재 페이지에서 발생한 로컬 스토리지 변경사항에 대해서는 감지하지 않습니다
+다른 탭이나 창에서 로컬 스토리지 변경이 발생했을떄 이벤트 발생
+변경 내용이 출력되지 않은 이유느 storageEvent 같은 페이지에서 발생한 로컬 스토리지의 변경 사항을 감지하지 않기 떄문

@@ -1,0 +1,68 @@
+{
+  "name": "react-hooks-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {   
+ "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+//eslintConfig: ESLint 설정을 담은 객체입니다.
+//extends: 이 프로젝트에서 사용할 기본 ESLint 설정을 확장합니다. 배열에 나열된 구성이 순서대로 적용됩니다. 여기서는 "react-app"과 "react-app/jest" 구성이 사용되고 있습니다.
+//"react-app": create-react-app에서 제공하는 기본 리액트 ESLint 구성입니다. 이 구성은 리액트 프로젝트에서 권장되는 규칙들을 포함합니다.
+//"react-app/jest": Jest 테스트 프레임워크와 관련된 리액트 ESLint 구성입니다. 이 구성은 Jest와 함께 사용되는 리액트 프로젝트에서 권장되는 규칙들을 포함합니다.
+
+// "name": 프로젝트의 이름입니다.
+
+// "version": 프로젝트의 버전입니다.
+
+// "private": 이 값을 true로 설정하면, npm 레지스트리에서 프로젝트를 공개하지 않습니다.
+
+// "dependencies": 프로젝트가 의존하는 패키지들이 정의되어 있습니다.
+
+// "@testing-library/jest-dom", "@testing-library/react", "@testing-library/user-event": React 컴포넌트의 테스트를 위한 라이브러리입니다.
+
+// "react", "react-dom": React와 React DOM 라이브러리입니다.
+
+// "react-scripts": Create React App에서 제공하는 스크립트를 실행하는 라이브러리입니다.
+
+// "web-vitals": 웹 페이지의 성능을 측정하기 위한 라이브러리입니다.
+
+// "scripts": 프로젝트에서 사용할 수 있는 스크립트가 정의되어 있습니다.
+
+// "start": 개발 서버를 실행합니다.
+
+// "build": 프로덕션 빌드를 실행합니다.
+
+// "test": 테스트를 실행합니다.
+
+// "eject": Create React App에서 제공하는 기본 설정을 제거합니다.
